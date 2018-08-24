@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
-using LojaNet.Models;
+﻿using LojaNet.Models;
+using System;
+using System.Collections.Generic;
+using System.Data;
 
 namespace LojaNet.DAL
 {
@@ -7,32 +9,68 @@ namespace LojaNet.DAL
     {
         public void Alterar(Cliente cliente)
         {
-            throw new System.NotImplementedException();
+            DbHelper.ExecuteNonQuery("ClienteAlterar",
+                "@Id", cliente.Id,
+                "@Nome", cliente.Nome,
+                "@Email", cliente.Email,
+                "@Telefone", cliente.Telefone
+                );
         }
 
         public void Excluir(string Id)
         {
-            throw new System.NotImplementedException();
+            DbHelper.ExecuteNonQuery("ClienteExcluir", "@Id", Id);
         }
 
         public void Incluir(Cliente cliente)
         {
-            throw new System.NotImplementedException();
+            DbHelper.ExecuteNonQuery("ClienteIncluir",
+                "@Id", cliente.Id,
+                "@Nome", cliente.Nome,
+                "@Email", cliente.Email,
+                "@Telefone", cliente.Telefone
+                );
         }
 
         public Cliente ObterPorEmail(string email)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public Cliente ObterPorId(string Id)
         {
-            throw new System.NotImplementedException();
+            Cliente cliente = null;
+            using (var reader = DbHelper.ExecuteReader("ClienteObterPorId", "@Id", Id))
+            {
+                if (reader.Read())
+                {
+                    cliente = ObterClienteReader(reader);
+                }
+            }
+            return cliente;
         }
 
         public List<Cliente> ObterTodos()
         {
-            throw new System.NotImplementedException();
+            var lista = new List<Cliente>();
+            using (var reader = DbHelper.ExecuteReader("ClienteListar"))
+            {
+                while (reader.Read())
+                {
+                    lista.Add(ObterClienteReader(reader));
+                }
+                return lista;
+            }
+        }
+
+        private static Cliente ObterClienteReader(IDataReader reader)
+        {
+            var cliente = new Cliente();
+            cliente.Id = reader["Id"].ToString();
+            cliente.Nome = reader["Nome"].ToString();
+            cliente.Email = reader["Email"].ToString();
+            cliente.Telefone = reader["Telefone"].ToString();
+            return cliente;
         }
     }
 }

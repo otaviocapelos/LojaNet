@@ -193,6 +193,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Cliente\Index.cshtml" />
     <Content Include="Views\Cliente\Incluir.cshtml" />
+    <Content Include="Views\Cliente\Detalhes.cshtml" />
+    <Content Include="Views\Cliente\Alterar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -213,7 +215,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LojaNet.BLL\LojaNet.BLL.csproj">
-      <Project>{7e09bb16-bb7b-424e-aa88-83b0fbf86a64}</Project>
+      <Project>{70a46b6a-08df-4f3b-a0cc-0c3f553fe29a}</Project>
       <Name>LojaNet.BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\LojaNet.Models\LojaNet.Models.csproj">
