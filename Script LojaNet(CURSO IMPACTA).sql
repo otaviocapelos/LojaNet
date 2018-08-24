@@ -37,8 +37,6 @@ CREATE PROCEDURE ClienteExcluir(
 	as
 DELETE FROM Cliente WHERE Id=@Id
 
-*/
-
 GO
 
 CREATE PROCEDURE ClienteObterPorId(
@@ -61,3 +59,4 @@ CREATE PROCEDURE ClienteAlterar(
 UPDATE Cliente
 SET Nome=@Nome, Email=@Email, Telefone=@Telefone
 WHERE Id=@Id
+*/

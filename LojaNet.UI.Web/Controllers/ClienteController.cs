@@ -13,6 +13,31 @@ namespace LojaNet.UI.Web.Controllers
             this.bll = new ClienteBLL();
         }
 
+        public ActionResult Excluir(string id)
+        {
+            return View(bll.ObterPorId(id));
+        }
+
+        [HttpPost]
+        public ActionResult Excluir(string id, FormCollection form)
+        {
+            try
+            {
+                bll.Excluir(id);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return View(bll.ObterPorId(id));
+            }
+        }
+
+        public ActionResult Alterar(string id)
+        {
+            return View(bll.ObterPorId(id));
+        }
+
         [HttpPost]
         public ActionResult Alterar(Cliente cliente)
         {
@@ -35,8 +60,7 @@ namespace LojaNet.UI.Web.Controllers
 
         public ActionResult Incluir()
         {
-            var cli = new Cliente();
-            return View(cli);
+            return View(new Cliente());
         }
         
         [HttpPost]
