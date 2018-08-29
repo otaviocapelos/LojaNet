@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Web;
 
 namespace LojaNet.DAL
 {
@@ -19,8 +20,9 @@ namespace LojaNet.DAL
 
         public void Excluir(string Id)
         {
+            string arquivo = HttpContext.Current.Server.MapPath($"~/App_Data/Cliente_{Id}.xml");
             Cliente cliente = ObterPorId(Id);
-            SerializadorHelper.Serializar($@"C:\Users\OTAVIO\Documents\C#\LojaNet\Dados\{cliente.GetType().Name}\{Id}.xml", cliente);
+            SerializadorHelper.Serializar(arquivo, cliente);
             DbHelper.ExecuteNonQuery("ClienteExcluir", "@Id", Id);
         }
 
