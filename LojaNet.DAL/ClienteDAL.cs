@@ -19,6 +19,8 @@ namespace LojaNet.DAL
 
         public void Excluir(string Id)
         {
+            Cliente cliente = ObterPorId(Id);
+            SerializadorHelper.Serializar($@"C:\Users\OTAVIO\Documents\C#\LojaNet\Dados\{cliente.GetType().Name}\{Id}.xml", cliente);
             DbHelper.ExecuteNonQuery("ClienteExcluir", "@Id", Id);
         }
 
