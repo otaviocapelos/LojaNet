@@ -6,7 +6,7 @@
 
     <h2>Clientes</h2>
     <p>
-        <a class="btn-info" href="/Cliente/Incluir">Novo</a>
+        <a class="btn btn-info" href="/Cliente/Incluir">Novo</a>
     </p>
 
 
@@ -19,7 +19,7 @@
         {
             <tr>
                 <td>
-                    @Html.ActionLink(cliente.Nome, "Detalhes", new { id=cliente.Id })
+                    @Html.ActionLink(cliente.Nome, "Detalhes", new { Id=cliente.Id })
                 </td>
                 <td>
                     @cliente.Email
