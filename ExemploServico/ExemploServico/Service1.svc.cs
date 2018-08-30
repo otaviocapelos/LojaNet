@@ -11,7 +11,7 @@ namespace ExemploServico
     {
         public string Mensagem()
         {
-            return "Isto vem de um servidor usando WCF";
+            return "Alterado:Isto vem de um servidor usando WCF";
         }
 
         public int Somar(int x, int y)

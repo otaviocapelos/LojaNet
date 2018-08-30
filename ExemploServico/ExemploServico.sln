@@ -5,6 +5,11 @@ VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExemploServico", "ExemploServico\ExemploServico.csproj", "{7B5D770F-BCD8-47F7-80D6-BB5BDB56D07D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClienteWindows", "ClienteWindows\ClienteWindows.csproj", "{2ED9FB47-1F82-45A2-9B78-2C875A5E407B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7B5D770F-BCD8-47F7-80D6-BB5BDB56D07D} = {7B5D770F-BCD8-47F7-80D6-BB5BDB56D07D}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,10 @@ Global
 		{7B5D770F-BCD8-47F7-80D6-BB5BDB56D07D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B5D770F-BCD8-47F7-80D6-BB5BDB56D07D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B5D770F-BCD8-47F7-80D6-BB5BDB56D07D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ED9FB47-1F82-45A2-9B78-2C875A5E407B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ED9FB47-1F82-45A2-9B78-2C875A5E407B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ED9FB47-1F82-45A2-9B78-2C875A5E407B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ED9FB47-1F82-45A2-9B78-2C875A5E407B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
