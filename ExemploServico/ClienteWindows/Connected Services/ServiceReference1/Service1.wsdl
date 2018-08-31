@@ -4,6 +4,7 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:61480/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:61480/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:61480/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ExemploServico" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="Servico01_Mensagem_InputMessage">
@@ -18,6 +19,12 @@
   <wsdl:message name="Servico01_Somar_OutputMessage">
     <wsdl:part name="parameters" element="tns:SomarResponse" />
   </wsdl:message>
+  <wsdl:message name="Servico01_PromocaoDoDia_InputMessage">
+    <wsdl:part name="parameters" element="tns:PromocaoDoDia" />
+  </wsdl:message>
+  <wsdl:message name="Servico01_PromocaoDoDia_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PromocaoDoDiaResponse" />
+  </wsdl:message>
   <wsdl:portType name="Servico01">
     <wsdl:operation name="Mensagem">
       <wsdl:input wsaw:Action="http://tempuri.org/Servico01/Mensagem" message="tns:Servico01_Mensagem_InputMessage" />
@@ -26,6 +33,10 @@
     <wsdl:operation name="Somar">
       <wsdl:input wsaw:Action="http://tempuri.org/Servico01/Somar" message="tns:Servico01_Somar_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/Servico01/SomarResponse" message="tns:Servico01_Somar_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PromocaoDoDia">
+      <wsdl:input wsaw:Action="http://tempuri.org/Servico01/PromocaoDoDia" message="tns:Servico01_PromocaoDoDia_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/Servico01/PromocaoDoDiaResponse" message="tns:Servico01_PromocaoDoDia_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_Servico01" type="tns:Servico01">
@@ -41,6 +52,15 @@
     </wsdl:operation>
     <wsdl:operation name="Somar">
       <soap:operation soapAction="http://tempuri.org/Servico01/Somar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PromocaoDoDia">
+      <soap:operation soapAction="http://tempuri.org/Servico01/PromocaoDoDia" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

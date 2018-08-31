@@ -14,6 +14,7 @@ namespace ExemploServico
         string Mensagem();
         [OperationContract]
         int Somar(int x, int y);
-
+        [OperationContract]
+        Produto PromocaoDoDia();
     }
 }

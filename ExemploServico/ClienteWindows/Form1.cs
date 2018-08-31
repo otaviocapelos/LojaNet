@@ -20,8 +20,9 @@ namespace ClienteWindows
         private void button1_Click(object sender, EventArgs e)
         {
             var wcf = new ServiceReference1.Servico01Client();
-            string msg = wcf.Mensagem();
-            MessageBox.Show(msg);
+            //string msg = wcf.Mensagem();
+            var produto = wcf.PromocaoDoDia();
+            MessageBox.Show($"{produto.Nome} {produto.Preco.ToString("C")}");
         }
 
         private void button2_Click(object sender, EventArgs e)
