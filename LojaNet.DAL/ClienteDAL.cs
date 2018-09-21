@@ -38,7 +38,19 @@ namespace LojaNet.DAL
 
         public Cliente ObterPorEmail(string email)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(email))
+            {
+                throw new ApplicationException("O email deve ser informado");
+            }
+            Cliente cliente = null;
+            using (var reader = DbHelper.ExecuteReader("ClienteObterPorEmail", "@email", email))
+            {
+                if (reader.Read())
+                {
+                    cliente = ObterClienteReader(reader);
+                }
+            }
+            return cliente;
         }
 
         public Cliente ObterPorId(string Id)
@@ -69,11 +81,13 @@ namespace LojaNet.DAL
 
         private static Cliente ObterClienteReader(IDataReader reader)
         {
-            var cliente = new Cliente();
-            cliente.Id = reader["Id"].ToString();
-            cliente.Nome = reader["Nome"].ToString();
-            cliente.Email = reader["Email"].ToString();
-            cliente.Telefone = reader["Telefone"].ToString();
+            var cliente = new Cliente
+            {
+                Id = reader["Id"].ToString(),
+                Nome = reader["Nome"].ToString(),
+                Email = reader["Email"].ToString(),
+                Telefone = reader["Telefone"].ToString()
+            };
             return cliente;
         }
     }
